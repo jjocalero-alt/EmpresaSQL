@@ -40,5 +40,17 @@ nFechaIninicioP Datetime not null,
 nFechaFinalP Datetime not null, 
 Constraint Pk_nProyectos primary Key (nProyectos) 
 ) 
+Create Table TEmpleadoProyecto (
+nEmpleadoProyecto Int Identity (1,1), 
+nEmpleadoID Int, 
+nProyectos Int, 
+Constraint Pk_nEmpleadoProyecto Primary Key (nEmpleadoProyecto),
+Constraint Fk_nEmpleadoID Foreign Key (nEmpleadoID) references TEmpleado(nEmpleadoID),
+CONSTRAINT Fk_nProyectos FOREIGN KEY (nProyectos) REFERENCES Proyectos (nProyectos)
+); 
+
+--Parte II
+Alter Table TEmpleado Add cEmail Nvarchar (26)
+Alter Table TEmpleado add cTelefono Varchar (9)
 
 
