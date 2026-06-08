@@ -1,0 +1,34 @@
+Create database EmpresaSql
+go
+
+Use EmpresaSql
+go
+
+Create table TDepartamento (
+nDepartamentoID INT identity (1,1) not null, 
+cNombreDepartamento Nvarchar (100) Unique not null, 
+Constraint Pk_nDepartamentoID primary Key (nDepartamentoID), 
+); 
+
+Create table Tcargo (
+nCargoID INT identity (1,1) not null, 
+cNombreCargo Nvarchar (100) Unique Not null, 
+Constraint Pk_nCargoId primary key (nCargoID), 
+Constraint Uq_NombreCargo Unique (cNombreCargo),
+); 
+
+Create table TEmplado (
+nEmpleadoID int Identity (1,1) not null, 
+cNIF Nvarchar (20) unique not null, 
+cNombre nvarchar (50) not null,
+cApellido Nvarchar (50) not null, 
+nDepartamentoID int not null, 
+nCargoID int not null, 
+dFechaContratación Datetime default getdate () not null,
+nSalario Decimal (10,2) not null, 
+constraint nSalario check (nSalario > 300),
+Constraint Pk_nEmpleadoID primary Key (nEmpleadoID), 
+Constraint Fk_nDepartamentoID Foreign Key (nDepartamentoID) references TDepartamento (nDepartamentoID), 
+Constraint Fk_nCargoID Foreign Key (nCargoID) references Tcargo (nCargoID), 
+Constraint Uq_cNIF Unique (cNIF)
+); 
