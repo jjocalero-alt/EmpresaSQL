@@ -32,3 +32,13 @@ Constraint Fk_nDepartamentoID Foreign Key (nDepartamentoID) references TDepartam
 Constraint Fk_nCargoID Foreign Key (nCargoID) references Tcargo (nCargoID), 
 Constraint Uq_cNIF Unique (cNIF)
 ); 
+
+Create Table Proyectos (
+nProyectos int Identity (1,1) not null, 
+nNombreProyecto NVarchar (200) not null, 
+nFechaIninicioP Datetime not null, 
+nFechaFinalP Datetime not null, 
+Constraint Pk_nProyectos primary Key (nProyectos) 
+) 
+
+
